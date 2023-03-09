@@ -1,0 +1,7 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/test-trigger']
+- name: 'gcr.io/cloud-builders/git'
+  args: ['checkout', 'master']
+- name: 'gcr.io/cloud-builders/git'
+  args: ['log', '-1', '--pretty=%B']
