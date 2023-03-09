@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/test-trigger']
+  args: ['clone', 'https://github.com/WrushabhGonnade/test-trigger']
 - name: 'gcr.io/cloud-builders/git'
   args: ['checkout', 'master']
 - name: 'gcr.io/cloud-builders/git'
