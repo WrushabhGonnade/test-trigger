@@ -6,26 +6,4 @@ steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['log', '-1', '--pretty=%B']
   
-  
-steps:
-- name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/WrushabhGonnade/test-trigger']
-- name: 'gcr.io/cloud-builders/git'
-  args: ['checkout', 'master']
-- name: 'gcr.io/cloud-builders/git'
-  args: ['log', '-1', '--pretty=%B']
-  id: 'get-commit-message'
-- name: 'gcr.io/octopusdeploy/octo'
-  entrypoint: octo
-  args:
-  - create-release
-  - --project=Hello World
-  - --version=2020.1.13
-  - --releasenotes=$COMMIT_MESSAGE
-  id: 'create-release'
-  env:
-  - COMMIT_MESSAGE=$(cat /workspace/$COMMIT_MESSAGE.txt)
-  volumes:
-  - name: 'workspace'
-    path: '/workspace'
 
